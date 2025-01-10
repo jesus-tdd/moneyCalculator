@@ -3,5 +3,5 @@ package software.ulpgc.moneycalc.architecture.view;
 import software.ulpgc.moneycalc.architecture.model.Money;
 
 public interface MoneyDisplay {
-    Money show(Money money);
+    void show(Money money);
 }
