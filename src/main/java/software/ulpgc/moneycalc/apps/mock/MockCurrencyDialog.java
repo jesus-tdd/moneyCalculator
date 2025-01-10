@@ -14,6 +14,6 @@ public class MockCurrencyDialog implements CurrencyDialog {
 
     @Override
     public software.ulpgc.moneycalc.architecture.model.Currency get() {
-        return currencies.getFirst();
+        return currencies.get(0);
     }
 }
