@@ -16,7 +16,7 @@ public class ExchangeCommand implements Command {
     private final MoneyDisplay moneyDisplay;
     private final ExchangeRateLoader loader;
 
-    public ExchangeCommand(MoneyDialog moneyDialog, CurrencyDialog currencyDialog, MoneyDisplay moneyDisplay, ExchangeRateLoader loader) {
+    public ExchangeCommand(MoneyDialog moneyDialog, CurrencyDialog currencyDialog, ExchangeRateLoader loader, MoneyDisplay moneyDisplay) {
         this.moneyDialog = moneyDialog;
         this.currencyDialog = currencyDialog;
         this.moneyDisplay = moneyDisplay;

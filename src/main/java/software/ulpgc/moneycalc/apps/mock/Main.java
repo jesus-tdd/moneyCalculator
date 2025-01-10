@@ -22,9 +22,9 @@ public class Main {
         Command command = new ExchangeCommand(
                 moneyDialog,
                 currencyDialog,
-                moneyDisplay,
-                loader
-        );
+                loader,
+                moneyDisplay
+                );
         command.execute();
     }
 }
