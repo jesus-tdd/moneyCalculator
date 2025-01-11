@@ -1,6 +1,5 @@
 package software.ulpgc.moneycalc.apps.windows;
 
-import software.ulpgc.moneycalc.apps.mock.MockCurrencyLoader;
 import software.ulpgc.moneycalc.apps.mock.MockExchangeRateLoader;
 import software.ulpgc.moneycalc.apps.windows.persistence.APICurrencyLoader;
 import software.ulpgc.moneycalc.apps.windows.persistence.ExchangeRatesAPI;
