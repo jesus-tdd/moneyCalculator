@@ -5,6 +5,5 @@ import software.ulpgc.moneycalc.apps.windows.persistence.APIConnection;
 import java.io.IOException;
 
 public interface API {
-    APIConnection connect(String endpoint) throws IOException;
     APIConnection connect(String endpoint, String parameter) throws IOException;
 }

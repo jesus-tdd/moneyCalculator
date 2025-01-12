@@ -1,6 +1,5 @@
 package software.ulpgc.moneycalc.apps.windows;
 
-import software.ulpgc.moneycalc.apps.mock.MockExchangeRateLoader;
 import software.ulpgc.moneycalc.apps.windows.persistence.APICurrencyLoader;
 import software.ulpgc.moneycalc.apps.windows.persistence.APIExchangeRateLoader;
 import software.ulpgc.moneycalc.apps.windows.persistence.ExchangeRatesAPI;
@@ -19,7 +18,7 @@ public class Main {
         ExchangeCommand exchangeCommand = new ExchangeCommand(
                 mainFrame.getMoneyDialog(),
                 mainFrame.getCurrencyDialog(),
-                new MockExchangeRateLoader(),
+                new APIExchangeRateLoader(api),
                 mainFrame.getMoneyDisplay()
         );
         mainFrame.add("exchange", exchangeCommand);

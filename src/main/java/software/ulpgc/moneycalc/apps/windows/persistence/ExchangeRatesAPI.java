@@ -16,13 +16,6 @@ public class ExchangeRatesAPI implements API {
     }
 
     @Override
-    public APIConnection connect(String endpoint) throws IOException {
-        URL url = new URL(connectUrl + endpoint + "/?api_key=" + apiKey);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        return new APIConnection(connection);
-    }
-
-    @Override
     public APIConnection connect(String endpoint, String parameter) throws IOException {
         URL url = new URL(connectUrl + endpoint + "/?api_key=" + apiKey + "&" + parameter);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

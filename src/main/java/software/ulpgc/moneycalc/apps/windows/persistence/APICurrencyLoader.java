@@ -47,6 +47,4 @@ public class APICurrencyLoader implements CurrencyLoader {
         connection.disconnect();
         return response;
     }
-
-
 }

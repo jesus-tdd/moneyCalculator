@@ -25,7 +25,7 @@ public class APIExchangeRateLoader implements ExchangeRateLoader {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        double exchangeRate = getExchangeRate(response, to);
+        double exchangeRate = getExchangeRate(response);
         return new ExchangeRate(from, to, exchangeRate, LocalDate.now());
     }
 
@@ -36,7 +36,7 @@ public class APIExchangeRateLoader implements ExchangeRateLoader {
         return response;
     }
 
-    private double getExchangeRate(String response, Currency to) {
+    private double getExchangeRate(String response) {
         JsonObject jsonResponse = JsonParser.parseString(response).getAsJsonObject();
         return jsonResponse.get("exchange_rate").getAsDouble();
     }
