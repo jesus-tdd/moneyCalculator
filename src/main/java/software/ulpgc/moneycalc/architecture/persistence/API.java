@@ -1,9 +1,10 @@
 package software.ulpgc.moneycalc.architecture.persistence;
 
+import software.ulpgc.moneycalc.apps.windows.persistence.APIConnection;
+
 import java.io.IOException;
-import java.net.URLConnection;
 
 public interface API {
-    URLConnection connect(String endpoint) throws IOException;
-    URLConnection connect(String endpoint, String parameter) throws IOException;
+    APIConnection connect(String endpoint) throws IOException;
+    APIConnection connect(String endpoint, String parameter) throws IOException;
 }
