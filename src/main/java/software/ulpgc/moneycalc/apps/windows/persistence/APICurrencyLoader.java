@@ -6,10 +6,7 @@ import software.ulpgc.moneycalc.architecture.model.Currency;
 import software.ulpgc.moneycalc.architecture.persistence.API;
 import software.ulpgc.moneycalc.architecture.persistence.CurrencyLoader;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,35 +32,20 @@ public class APICurrencyLoader implements CurrencyLoader {
 
     private List<Currency> getCurrencies(String response) {
         JsonObject jsonResponse = JsonParser.parseString(response).getAsJsonObject();
-        JsonObject symbols = jsonResponse.getAsJsonObject("symbols");
+        JsonObject symbols = jsonResponse.getAsJsonObject("exchange_rates");
         List<Currency> currencies = new ArrayList<>();
+        currencies.add(new Currency("", "EUR", ""));
         for (String key : symbols.keySet()) {
-            currencies.add(new Currency(symbols.get(key).getAsString(), key, ""));
+            currencies.add(new Currency("", key, ""));
         }
         return currencies;
     }
 
     private String getCurrenciesFromApi() throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) api.connect("symbols");
-        connection.setRequestMethod("GET");
-
-        String response = "";
-        if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-            response = parseResponse(connection);
-        }
+        APIConnection connection = api.connect("live", "base=EUR");
+        String response = connection.parseResponse();
         connection.disconnect();
         return response;
-    }
-
-    private String parseResponse(HttpURLConnection connection) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        StringBuilder response = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            response.append(line);
-        }
-        reader.close();
-        return response.toString();
     }
 
 
