@@ -2,13 +2,13 @@ package software.ulpgc.moneycalc.apps.mock;
 
 import software.ulpgc.moneycalc.architecture.model.Currency;
 import software.ulpgc.moneycalc.architecture.model.ExchangeRate;
-import software.ulpgc.moneycalc.architecture.persistence.ExchangeRateLoader;
+import software.ulpgc.moneycalc.architecture.persistence.ExchangeRateReader;
 
 import java.time.LocalDate;
 
-public class MockExchangeRateLoader implements ExchangeRateLoader {
+public class MockExchangeRateLoader implements ExchangeRateReader {
     @Override
-    public ExchangeRate load(Currency from, Currency to, LocalDate date) {
-        return new ExchangeRate(from, to, 1.2, LocalDate.now());
+    public String read(Currency from, Currency to, LocalDate date) {
+        return "1.2";
     }
 }

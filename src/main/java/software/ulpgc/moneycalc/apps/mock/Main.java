@@ -3,7 +3,7 @@ package software.ulpgc.moneycalc.apps.mock;
 import software.ulpgc.moneycalc.architecture.control.Command;
 import software.ulpgc.moneycalc.architecture.control.ExchangeCommand;
 import software.ulpgc.moneycalc.architecture.model.Currency;
-import software.ulpgc.moneycalc.architecture.persistence.ExchangeRateLoader;
+import software.ulpgc.moneycalc.architecture.persistence.ExchangeRateReader;
 import software.ulpgc.moneycalc.architecture.view.CurrencyDialog;
 import software.ulpgc.moneycalc.architecture.view.MoneyDialog;
 import software.ulpgc.moneycalc.architecture.view.MoneyDisplay;
@@ -14,10 +14,10 @@ import java.util.List;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        List<Currency> currencies = new MockCurrencyLoader().load();
+        /*List<Currency> currencies = new MockCurrencyLoader().read();
         MoneyDialog moneyDialog = new MockMoneyDialog(currencies);
         CurrencyDialog currencyDialog = new MockCurrencyDialog(currencies);
-        ExchangeRateLoader loader = new MockExchangeRateLoader();
+        ExchangeRateReader loader = new MockExchangeRateLoader();
         MoneyDisplay moneyDisplay = new MockMoneyDisplay();
         Command command = new ExchangeCommand(
                 moneyDialog,
@@ -25,6 +25,6 @@ public class Main {
                 loader,
                 moneyDisplay
                 );
-        command.execute();
+        command.execute();*/
     }
 }

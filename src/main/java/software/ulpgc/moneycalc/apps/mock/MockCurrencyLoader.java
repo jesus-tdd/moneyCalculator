@@ -1,16 +1,13 @@
 package software.ulpgc.moneycalc.apps.mock;
 
 import software.ulpgc.moneycalc.architecture.model.Currency;
-import software.ulpgc.moneycalc.architecture.persistence.CurrencyLoader;
+import software.ulpgc.moneycalc.architecture.persistence.CurrencyReader;
 
 import java.util.List;
 
-public class MockCurrencyLoader implements CurrencyLoader {
+public class MockCurrencyLoader implements CurrencyReader {
     @Override
-    public List<Currency> load() {
-        return List.of(
-                new Currency("Dólar americano", "USD", "$"),
-                new Currency("Euro", "EUR", "€")
-        );
+    public String read() {
+        return "EUR, USD";
     }
 }

@@ -1,6 +1,7 @@
 package software.ulpgc.moneycalc.architecture.control;
 
-import software.ulpgc.moneycalc.architecture.persistence.ExchangeRateLoader;
+import software.ulpgc.moneycalc.apps.windows.persistence.ExchangeRateLoader;
+import software.ulpgc.moneycalc.architecture.persistence.ExchangeRateReader;
 import software.ulpgc.moneycalc.architecture.model.Currency;
 import software.ulpgc.moneycalc.architecture.model.ExchangeRate;
 import software.ulpgc.moneycalc.architecture.model.Money;
@@ -8,6 +9,7 @@ import software.ulpgc.moneycalc.architecture.view.CurrencyDialog;
 import software.ulpgc.moneycalc.architecture.view.MoneyDialog;
 import software.ulpgc.moneycalc.architecture.view.MoneyDisplay;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class ExchangeCommand implements Command {
@@ -24,7 +26,7 @@ public class ExchangeCommand implements Command {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws IOException {
         Money money = moneyDialog.get();
         Currency currency= currencyDialog.get();
 
